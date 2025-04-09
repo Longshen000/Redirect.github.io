@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Redirecting in 20 seconds...</title>
 
-    <!-- Adsterra Banner Iklan -->
+    <!-- Adsterra Iklan -->
     <script type="text/javascript">
       atOptions = {
         'key' : '6a17b3e55376b1f564904248a90c9918',
@@ -16,25 +16,31 @@
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/6a17b3e55376b1f564904248a90c9918/invoke.js"></script>
 
-    <script>
-      // Timer redirect setelah 20 detik
-      setTimeout(function() {
-        window.location.href = "http://127.0.0.1:8080/";
-      }, 20000); // 20 detik = 20000 ms
-    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 80px;
+      }
+    </style>
   </head>
   <body>
-    <p>Redirecting to <a href="http://127.0.0.1:8080/">localhost</a> in <span id="countdown">20</span> seconds...</p>
+    <h1>Redirecting in <span id="countdown">20</span> seconds...</h1>
+    <p>If not redirected, click <a href="http://127.0.0.1:8080/">here</a>.</p>
+
     <div id="ad-container"></div>
 
     <script>
-      // Countdown visual
       let countdown = 20;
       const countdownEl = document.getElementById("countdown");
-      const interval = setInterval(() => {
+
+      const timer = setInterval(() => {
         countdown--;
         countdownEl.textContent = countdown;
-        if (countdown <= 0) clearInterval(interval);
+        if (countdown <= 0) {
+          clearInterval(timer);
+          window.location.href = "http://127.0.0.1:8080/";
+        }
       }, 1000);
     </script>
   </body>
